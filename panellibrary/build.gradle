@@ -20,6 +20,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        profile {
+            initWith debug
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -29,28 +32,33 @@ android {
         jvmTarget = '1.8'
     }
 }
-repositories {
+/*repositories {
     google()
     mavenCentral()
     maven { url 'https://jitpack.io' }
-    maven {url 'http://download.flutter.io'
-        allowInsecureProtocol = true}
+    *//*maven {
+        url 'http://download.flutter.io'
+        allowInsecureProtocol = true
+    }*//*
     maven {
-        url "https://dev-tappp-panel.s3.us-east-2.amazonaws.com/build/host/outputs/repo/"
+        //url "https://dev-tappp-panel.s3.us-east-2.amazonaws.com/build/host/outputs/repo/"
+        url "/home/lt-183/Desktop/tudip-work/TAPPP/tappp_panel/build/host/outputs/repo"
     }
     maven {
         url "https://storage.googleapis.com/download.flutter.io"
     }
-}
+}*/
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
+    //implementation files('libs/flutter.jar')
+    //implementation files('libs/flutter_embedding_debug-1.0.0-8f2221fbef28b478debb78dd233f5250b220ca99-sources.jar')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
-    debugImplementation 'com.example.tappp_panel:flutter_debug:1.0'
-    // profileImplementation 'com.example.flutter_module_rn:flutter_profile:1.0'
-    releaseImplementation 'com.example.tappp_panel:flutter_release:1.0'
+    //debugImplementation 'com.example.tappp_panel:flutter_debug:1.0'
+    //profileImplementation 'com.example.flutter_module_rn:flutter_profile:1.0'
+    //releaseImplementation 'com.example.tappp_panel:flutter_release:1.0'
 }
