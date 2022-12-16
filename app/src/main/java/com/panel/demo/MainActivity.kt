@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import com.panel.demo.databinding.ActivityMainBinding
-import com.tappp.library.constant.ViewEnum
+import com.tappp.library.constant.Constants
 import com.tappp.library.view.OverlayPanelLayout
 
 class MainActivity : AppCompatActivity(), OverlayPanelLayout.DataListener {
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), OverlayPanelLayout.DataListener {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         overlayPanelLayout = OverlayPanelLayout(this)
-        overlayPanelLayout.init(ViewEnum.IMAGE, supportFragmentManager, R.id.fragment_container)
+        overlayPanelLayout.init(Constants.IMAGE_VIEW, supportFragmentManager, R.id.fragment_container)
 
         //overlayPanelLayout.start()
 
