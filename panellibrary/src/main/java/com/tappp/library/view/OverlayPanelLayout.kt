@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import com.panel.library.R
+import com.tappp.library.constant.ViewEnum
 import com.tappp.library.view.fragment.ImageFragment
 import com.tappp.library.view.fragment.WebFragment
 
@@ -44,14 +45,27 @@ class OverlayPanelLayout : FrameLayout {
         //
     }
 
-    fun init(mScreen:Int, supportFragmentManager: FragmentManager, fragmentContainer: Int) {
+    fun init(mViewEnum: ViewEnum, supportFragmentManager: FragmentManager, fragmentContainer: Int) {
 
-        var webFragment = WebFragment(context)
+        if (ViewEnum.IMAGE == mViewEnum){
+            supportFragmentManager
+                .beginTransaction()
+                .add(fragmentContainer, ImageFragment(), TAG_FLUTTER_FRAGMENT)
+                .commit()
+        }else if (ViewEnum.LOCAL_WEB == mViewEnum){
+            val webFragment = WebFragment.newInstance(1)
+            supportFragmentManager
+                .beginTransaction()
+                .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
+                .commit()
+        }else if (ViewEnum.REMOTE_WEB == mViewEnum){
+            val webFragment = WebFragment.newInstance(2)
+            supportFragmentManager
+                .beginTransaction()
+                .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
+                .commit()
+        }
 
-        supportFragmentManager
-            .beginTransaction()
-            .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
-            .commit()
 
         /*this.supportFragmentManager = supportFragmentManager
             this.fragmentContainer = fragmentContainer;

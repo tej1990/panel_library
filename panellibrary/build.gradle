@@ -54,7 +54,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    //implementation 'org.mozilla:rhino:1.7R4'
     //implementation files('libs/flutter.jar')
     //implementation files('libs/flutter_embedding_debug-1.0.0-8f2221fbef28b478debb78dd233f5250b220ca99-sources.jar')
     testImplementation 'junit:junit:4.13.2'

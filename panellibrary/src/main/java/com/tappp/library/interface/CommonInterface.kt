@@ -11,7 +11,6 @@ class CommonInterface(context: Context?) {
 
     var context: Context? = context
 
-
     @JavascriptInterface
     fun showToast(toast: String?) {
         Toast.makeText(context, toast, Toast.LENGTH_SHORT).show()
@@ -20,5 +19,11 @@ class CommonInterface(context: Context?) {
     @JavascriptInterface
     fun getMessage(): String? {
         return "Hello From Android Native!"
+    }
+
+    @JavascriptInterface
+    fun onClicked() {
+        Toast.makeText(context, "Help button clicked", Toast.LENGTH_SHORT).show()
+        //Log.d("HelpButton", )
     }
 }
