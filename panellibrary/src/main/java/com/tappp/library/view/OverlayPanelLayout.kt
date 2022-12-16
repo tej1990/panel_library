@@ -7,12 +7,15 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import com.panel.library.R
+import com.tappp.library.view.fragment.ImageFragment
+import com.tappp.library.view.fragment.WebFragment
 
 /**
  * Created by Tejas A. Prajapati on 30/11/22.
  */
 class OverlayPanelLayout : FrameLayout {
 
+    private val TAG_FLUTTER_FRAGMENT = "flutter_fragment"
     /*private var flutterFragment: FlutterFragment? = null
     private val TAG_FLUTTER_FRAGMENT = "flutter_fragment"
     private var supportFragmentManager: FragmentManager? = null
@@ -38,11 +41,50 @@ class OverlayPanelLayout : FrameLayout {
     }
 
     fun hide(imgView: AppCompatImageView){
-        //imgView.set
+        //
+    }
+
+    fun init(mScreen:Int, supportFragmentManager: FragmentManager, fragmentContainer: Int) {
+
+        var webFragment = WebFragment(context)
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
+            .commit()
+
+        /*this.supportFragmentManager = supportFragmentManager
+            this.fragmentContainer = fragmentContainer;
+            flutterFragment = supportFragmentManager
+                .findFragmentByTag(TAG_FLUTTER_FRAGMENT) as FlutterFragment?
+            if (flutterFragment == null) {
+                flutterEngine = FlutterEngine(context)
+                flutterEngine!!.dartExecutor.executeDartEntrypoint(
+                    DartExecutor.DartEntrypoint.createDefault()
+                )
+                FlutterEngineCache.getInstance().put(Constants.FLUTTER_ENGINE_ID, flutterEngine)
+                val flutterFragment = FlutterFragment
+                    .withCachedEngine(Constants.FLUTTER_ENGINE_ID)
+                    .renderMode(RenderMode.texture)
+                    .transparencyMode(TransparencyMode.transparent)
+                    .shouldAttachEngineToActivity(false)
+                    .build<FlutterFragment>()
+
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(fragmentContainer, flutterFragment, TAG_FLUTTER_FRAGMENT)
+                    .commit()
+            }*/
     }
 
     fun init(supportFragmentManager: FragmentManager, fragmentContainer: Int) {
-        /*this.supportFragmentManager = supportFragmentManager
+
+        supportFragmentManager
+            .beginTransaction()
+            .add(fragmentContainer, ImageFragment(), TAG_FLUTTER_FRAGMENT)
+            .commit()
+
+    /*this.supportFragmentManager = supportFragmentManager
         this.fragmentContainer = fragmentContainer;
         flutterFragment = supportFragmentManager
             .findFragmentByTag(TAG_FLUTTER_FRAGMENT) as FlutterFragment?

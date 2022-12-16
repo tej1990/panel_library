@@ -3,6 +3,8 @@ package com.panel.demo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.panel.demo.databinding.ActivityMainBinding
 import com.tappp.library.view.OverlayPanelLayout
 
@@ -15,12 +17,11 @@ class MainActivity : AppCompatActivity(), OverlayPanelLayout.DataListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
         overlayPanelLayout = OverlayPanelLayout(this)
 
-        overlayPanelLayout.init(binding!!.imgPanel)
+        //overlayPanelLayout.init(binding!!.imgPanel)
 
-        //overlayPanelLayout.init(supportFragmentManager, R.id.fragment_container)
+        overlayPanelLayout.init(1, supportFragmentManager, R.id.fragment_container)
 
         //overlayPanelLayout.start()
 

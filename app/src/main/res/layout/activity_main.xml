@@ -30,6 +30,7 @@
                     android:layout_height="match_parent">
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:visibility="gone"
                         android:id="@+id/btnSendDataToFlutter"
                         android:textColor="@color/white"
                         android:backgroundTint="@color/teal_700"
@@ -39,21 +40,21 @@
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!--<androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_weight="0.7"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_weight="0.4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/fragment_container"
                     tools:ignore="MissingConstraints"
-                    android:orientation="horizontal"/>-->
+                    android:orientation="horizontal"/>
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <!--<androidx.appcompat.widget.AppCompatImageView
                     android:scaleType="fitXY"
                     android:id="@+id/imgPanel"
                     android:layout_weight="0.4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"/>
+                    android:orientation="horizontal"/>-->
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
