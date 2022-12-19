@@ -61,9 +61,13 @@ class WebFragment() : Fragment() {
             }
         }
         mWebView!!.addJavascriptInterface(CommonInterface(context), "Android")
-        var file = "file:android_asset/sample.html"
+        var file = "file:android_asset/sampledemo.html"
         if (mValue==2){
-           file = "https://tappp.com/"
+           file = "http://tappp-web-build.s3-website.us-east-2.amazonaws.com/"
+        }else if(mValue==3){
+            file = "file:android_asset/calender/index.html"
+        }else if(mValue==4){
+            file = "file:android_asset/panel/index.html"
         }
         mWebView!!.loadUrl(file)
     }

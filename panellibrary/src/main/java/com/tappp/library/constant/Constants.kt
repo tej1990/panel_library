@@ -25,6 +25,8 @@ object Constants {
 
     const val IMAGE_VIEW = "IMAGE_VIEW"
     const val LOCAL_WEB_VIEW = "LOCAL_WEB_VIEW"
+    const val LOCAL_CALENDER = "LOCAL_CALENDER"
+    const val LOCAL_PANEL = "LOCAL_PANEL"
     const val REMOTE_WEB_VIEW = "REMOTE_WEB_VIEW"
 
 }

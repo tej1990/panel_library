@@ -28,8 +28,16 @@
 <button  class="item" onClick="setMessageFromHtml('Hello, From HTML')">Set Message From Html</button>
 <br><br>
 <button class="item" onClick="getMessageFromAndroid()">Get Message From Android</button>
-
-<script type="text/javascript">
+<script src="./script.js"></script>
+<script src="./vanila.js"></script>
+<script>
+		window.addEventListener('load', function () {
+			vanillaCalendar.init({
+				disablePastDays: true
+			});
+		})
+	</script>
+<!--<script type="text/javascript">
     function showAndroidToast() {
         let nameField = document.getElementById('nameField').value;
         Android.showToast(nameField);
@@ -40,5 +48,5 @@
     function getMessageFromAndroid() {
        document.getElementById('welcome').innerHTML = Android.getMessage();
     }
-</script>
+</script>-->
 </body>

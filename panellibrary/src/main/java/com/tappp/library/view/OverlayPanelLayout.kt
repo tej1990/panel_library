@@ -64,6 +64,18 @@ class OverlayPanelLayout : FrameLayout {
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
                 .commit()
+        }else if (mViewEnum.equals(Constants.LOCAL_CALENDER)){
+            val webFragment = WebFragment.newInstance(3)
+            supportFragmentManager
+                .beginTransaction()
+                .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
+                .commit()
+        }else if (mViewEnum.equals(Constants.LOCAL_PANEL)){
+            val webFragment = WebFragment.newInstance(4)
+            supportFragmentManager
+                .beginTransaction()
+                .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
+                .commit()
         }
 
 
