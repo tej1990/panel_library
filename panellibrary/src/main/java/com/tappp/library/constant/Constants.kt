@@ -24,9 +24,11 @@ object Constants {
 
 
     const val IMAGE_VIEW = "IMAGE_VIEW"
-    const val LOCAL_WEB_VIEW = "LOCAL_WEB_VIEW"
-    const val LOCAL_CALENDER = "LOCAL_CALENDER"
-    const val LOCAL_PANEL = "LOCAL_PANEL"
-    const val REMOTE_WEB_VIEW = "REMOTE_WEB_VIEW"
+    const val LOCAL_WEB_VIEW = "LOCAL_WEB_VIEW" //1
+    const val S3_WEB_VIEW = "S3_WEB_VIEW"//2
+    const val LOCAL_VANILA_CALENDER = "LOCAL_VANILA_CALENDER"//3
+    const val LOCAL_HOST_VANILA_CALENDER = "LOCAL_HOST_VANILA_CALENDER"//4
+    const val LOCAL_S3_PANEL = "LOCAL_S3_PANEL"//5
+    const val LOCAL_HOST_S3_PANEL = "LOCAL_HOST_S3_PANEL"//6
 
 }

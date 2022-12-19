@@ -58,20 +58,32 @@ class OverlayPanelLayout : FrameLayout {
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
                 .commit()
-        }else if (mViewEnum.equals(Constants.REMOTE_WEB_VIEW)){
+        }else if (mViewEnum.equals(Constants.S3_WEB_VIEW)){
             val webFragment = WebFragment.newInstance(2)
             supportFragmentManager
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
                 .commit()
-        }else if (mViewEnum.equals(Constants.LOCAL_CALENDER)){
+        }else if (mViewEnum.equals(Constants.LOCAL_VANILA_CALENDER)){
             val webFragment = WebFragment.newInstance(3)
             supportFragmentManager
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
                 .commit()
-        }else if (mViewEnum.equals(Constants.LOCAL_PANEL)){
+        }else if (mViewEnum.equals(Constants.LOCAL_HOST_VANILA_CALENDER)){
             val webFragment = WebFragment.newInstance(4)
+            supportFragmentManager
+                .beginTransaction()
+                .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
+                .commit()
+        }else if (mViewEnum.equals(Constants.LOCAL_S3_PANEL)){
+            val webFragment = WebFragment.newInstance(5)
+            supportFragmentManager
+                .beginTransaction()
+                .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
+                .commit()
+        }else if (mViewEnum.equals(Constants.LOCAL_HOST_S3_PANEL)){
+            val webFragment = WebFragment.newInstance(6)
             supportFragmentManager
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
