@@ -64,26 +64,14 @@ class OverlayPanelLayout : FrameLayout {
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
                 .commit()
-        }else if (mViewEnum.equals(Constants.LOCAL_VANILA_CALENDER)){
+        }else if (mViewEnum.equals(Constants.LIBRARY_CALENDER)){
             val webFragment = WebFragment.newInstance(3)
             supportFragmentManager
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
                 .commit()
-        }else if (mViewEnum.equals(Constants.LOCAL_HOST_VANILA_CALENDER)){
-            val webFragment = WebFragment.newInstance(4)
-            supportFragmentManager
-                .beginTransaction()
-                .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
-                .commit()
-        }else if (mViewEnum.equals(Constants.LOCAL_S3_PANEL)){
+        }else if (mViewEnum.equals(Constants.LIBRARY_PANEL)){
             val webFragment = WebFragment.newInstance(5)
-            supportFragmentManager
-                .beginTransaction()
-                .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
-                .commit()
-        }else if (mViewEnum.equals(Constants.LOCAL_HOST_S3_PANEL)){
-            val webFragment = WebFragment.newInstance(6)
             supportFragmentManager
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
@@ -122,28 +110,28 @@ class OverlayPanelLayout : FrameLayout {
             .add(fragmentContainer, ImageFragment(), TAG_FLUTTER_FRAGMENT)
             .commit()
 
-    /*this.supportFragmentManager = supportFragmentManager
-        this.fragmentContainer = fragmentContainer;
-        flutterFragment = supportFragmentManager
-            .findFragmentByTag(TAG_FLUTTER_FRAGMENT) as FlutterFragment?
-        if (flutterFragment == null) {
-            flutterEngine = FlutterEngine(context)
-            flutterEngine!!.dartExecutor.executeDartEntrypoint(
-                DartExecutor.DartEntrypoint.createDefault()
-            )
-            FlutterEngineCache.getInstance().put(Constants.FLUTTER_ENGINE_ID, flutterEngine)
-            val flutterFragment = FlutterFragment
-                .withCachedEngine(Constants.FLUTTER_ENGINE_ID)
-                .renderMode(RenderMode.texture)
-                .transparencyMode(TransparencyMode.transparent)
-                .shouldAttachEngineToActivity(false)
-                .build<FlutterFragment>()
+        /*this.supportFragmentManager = supportFragmentManager
+            this.fragmentContainer = fragmentContainer;
+            flutterFragment = supportFragmentManager
+                .findFragmentByTag(TAG_FLUTTER_FRAGMENT) as FlutterFragment?
+            if (flutterFragment == null) {
+                flutterEngine = FlutterEngine(context)
+                flutterEngine!!.dartExecutor.executeDartEntrypoint(
+                    DartExecutor.DartEntrypoint.createDefault()
+                )
+                FlutterEngineCache.getInstance().put(Constants.FLUTTER_ENGINE_ID, flutterEngine)
+                val flutterFragment = FlutterFragment
+                    .withCachedEngine(Constants.FLUTTER_ENGINE_ID)
+                    .renderMode(RenderMode.texture)
+                    .transparencyMode(TransparencyMode.transparent)
+                    .shouldAttachEngineToActivity(false)
+                    .build<FlutterFragment>()
 
-            supportFragmentManager
-                .beginTransaction()
-                .add(fragmentContainer, flutterFragment, TAG_FLUTTER_FRAGMENT)
-                .commit()
-        }*/
+                supportFragmentManager
+                    .beginTransaction()
+                    .add(fragmentContainer, flutterFragment, TAG_FLUTTER_FRAGMENT)
+                    .commit()
+            }*/
     }
 
     fun start() {
@@ -166,14 +154,14 @@ class OverlayPanelLayout : FrameLayout {
     }
 
     private fun eventHandler() {
-       /* channel =
-            MethodChannel(flutterEngine!!.dartExecutor.binaryMessenger, Constants.FLUTTER_CHANNEL)
-        channel!!.setMethodCallHandler { call, result ->
-            if (mPanelDataListener != null) {
-                //mPanelDataListener!!.onDataReceived(call, result)
-                mPanelDataListener!!.onDataReceived(call.method, call.arguments)
-            }
-        }*/
+        /* channel =
+             MethodChannel(flutterEngine!!.dartExecutor.binaryMessenger, Constants.FLUTTER_CHANNEL)
+         channel!!.setMethodCallHandler { call, result ->
+             if (mPanelDataListener != null) {
+                 //mPanelDataListener!!.onDataReceived(call, result)
+                 mPanelDataListener!!.onDataReceived(call.method, call.arguments)
+             }
+         }*/
     }
 
     fun passDataToFlutter(dataObject: HashMap<String, String?>) {

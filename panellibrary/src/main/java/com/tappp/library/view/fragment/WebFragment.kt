@@ -47,7 +47,7 @@ class WebFragment() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mWebView = view?.findViewById(R.id.webView)
-        mWebView!!.setBackgroundColor(Color.TRANSPARENT);
+        mWebView!!.setBackgroundColor(Color.TRANSPARENT)
         loadUrls()
     }
 
@@ -63,17 +63,13 @@ class WebFragment() : Fragment() {
             }
         }
         mWebView!!.addJavascriptInterface(CommonInterface(context), "Android")
-        var file = "file:android_asset/sample.html"
+        var file = "file:android_asset/sampledemo.html"
         if (mValue==2){//S3_WEB_VIEW
-           file = "http://tappp-web-build.s3-website.us-east-2.amazonaws.com/"
+            file = "http://tappp-web-build.s3-website.us-east-2.amazonaws.com/"
         }else if(mValue==3){//LOCAL_VANILA_CALENDER
             file = "file:android_asset/calender/index.html"
-        }else if(mValue==4){//S3_WEB_VIEW
-            file = "http://10.0.2.2/vanilacalender/index.html"
         }else if(mValue==5){//LOCAL_S3_PANEL
             file = "file:android_asset/panel/index.html"
-        }else if(mValue==6){//LOCAL_HOST_S3_PANEL
-            file = "http://10.0.2.2/panel_bundle/index.html"
         }
         mWebView!!.loadUrl(file)
     }
