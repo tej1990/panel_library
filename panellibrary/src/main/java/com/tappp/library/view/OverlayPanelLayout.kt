@@ -71,7 +71,7 @@ class OverlayPanelLayout : FrameLayout {
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)
                 .commit()
         }else if (mViewEnum.equals(Constants.LIBRARY_PANEL)){
-            val webFragment = WebFragment.newInstance(5)
+            val webFragment = WebFragment.newInstance(4)
             supportFragmentManager
                 .beginTransaction()
                 .add(fragmentContainer, webFragment, TAG_FLUTTER_FRAGMENT)

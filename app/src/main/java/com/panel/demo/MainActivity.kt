@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), OverlayPanelLayout.DataListener {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         overlayPanelLayout = OverlayPanelLayout(this)
-        overlayPanelLayout.init(Constants.S3_WEB_VIEW, supportFragmentManager, R.id.fragment_container)
+        overlayPanelLayout.init(Constants.LIBRARY_PANEL, supportFragmentManager, R.id.fragment_container)
 
         //overlayPanelLayout.start()
 
