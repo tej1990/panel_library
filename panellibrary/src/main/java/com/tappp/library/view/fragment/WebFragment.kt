@@ -1,7 +1,6 @@
 package com.tappp.library.view.fragment
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,8 +20,10 @@ class WebFragment() : Fragment() {
     val WEB_VALUE = "WEB_VALUE"
 
     companion object {
+        private var callback: OnPanelDataListener? = null
         const val WEB_VALUE = "WEB_VALUE"
-        fun newInstance(mValue: Int): WebFragment {
+        fun newInstance(mValue: Int, callback: OnPanelDataListener?): WebFragment {
+            this.callback = callback
             val fragment = WebFragment()
             val bundle = Bundle().apply {
                 putInt(WEB_VALUE, mValue)
@@ -62,15 +63,21 @@ class WebFragment() : Fragment() {
                 return true
             }
         }
-        mWebView!!.addJavascriptInterface(CommonInterface(context), "Android")
-        var file = "file:android_asset/panel/index.html"
-        if (mValue==2){//S3_WEB_VIEW
-            file = "http://tappp-web-build.s3-website.us-east-2.amazonaws.com/"
-        }else if(mValue==3){//LIBRARY_CALENDER
+        mWebView!!.addJavascriptInterface(CommonInterface(context, callback), "Android")
+        //mWebView!!.addJavascriptInterface(callback!!, "Android")
+        var file = "file:android_asset/sample.html"
+        /*if (mValue==2){//S3_WEB_VIEW
+           file = "http://tappp-web-build.s3-website.us-east-2.amazonaws.com/"
+        }else if(mValue==3){//LOCAL_VANILA_CALENDER
             file = "file:android_asset/calender/index.html"
-        }else if(mValue==4){//LIBRARY_PANEL
+        }else if(mValue==5){//LOCAL_S3_PANEL
             file = "file:android_asset/panel/index.html"
-        }
+        }*/
         mWebView!!.loadUrl(file)
     }
+
+    interface OnPanelDataListener{
+        fun showToast(toast: String?) {}
+    }
+
 }

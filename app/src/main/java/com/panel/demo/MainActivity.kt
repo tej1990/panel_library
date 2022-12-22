@@ -3,13 +3,16 @@ package com.panel.demo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
 import com.panel.demo.databinding.ActivityMainBinding
 import com.tappp.library.constant.Constants
-import com.tappp.library.view.OverlayPanelLayout
+import com.tappp.library.model.PanelSettingModel
+import com.tappp.library.view.TapppPanel
+import org.json.JSONObject
 
-class MainActivity : AppCompatActivity(), OverlayPanelLayout.DataListener {
+class MainActivity : AppCompatActivity(), TapppPanel.DataListener {
     private var binding: ActivityMainBinding? = null
-    private lateinit var overlayPanelLayout: OverlayPanelLayout
+    private lateinit var tapppPanel: TapppPanel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,16 +20,32 @@ class MainActivity : AppCompatActivity(), OverlayPanelLayout.DataListener {
         setContentView(binding!!.root)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        overlayPanelLayout = OverlayPanelLayout(this)
-        overlayPanelLayout.init(Constants.LIBRARY_PANEL, supportFragmentManager, R.id.fragment_container)
+        //panelData, panelSetting
+        val panelSetting= PanelSettingModel()
+        panelSetting.supportManager = supportFragmentManager
+        panelSetting.containerView=R.id.fragment_container
+        panelSetting.panelView= binding!!.fragmentContainer
 
-        //overlayPanelLayout.start()
+        val panelData = JSONObject()
+        panelData.put("DISPLAY_OPTION", Constants.LIBRARY_PANEL)
+        panelData.put("bookId", "1348923539")
+        panelData.put("gameId", "900585")
+        panelData.put("locationCheck", true)
+        panelData.put("language", "en")
 
-        //overlayPanelLayout.subscribe(this)
+        tapppPanel = TapppPanel(this)
+        tapppPanel.init(panelData, panelSetting)
+        tapppPanel.start()
+        tapppPanel.subscribe(Constants.EVENT_RECEIVE_MESSAGE, this)
+
     }
 
-    override fun onDataReceived(call: String?, result: Any?) {
+    override fun onDataReceived(event: String?, result: Any?) {
+        showToastMessage(result as String)
+    }
 
+    private fun showToastMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
 }

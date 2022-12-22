@@ -29,4 +29,8 @@ object Constants {
     const val LIBRARY_CALENDER = "LIBRARY_CALENDER"//3
     const val LIBRARY_PANEL = "LIBRARY_PANEL"//5
 
+    /*Events*/
+    const val EVENT_RECEIVE_MESSAGE = "showAndroidToast"//5
+    const val EVENT_PASSING_WEB = "getMessageFromAndroid"//5
+
 }
